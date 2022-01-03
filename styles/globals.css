@@ -14,3 +14,80 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.wrapper {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  background-color: #202225;
+  background-image: url('https://i.odstrani.se/discord_background.svg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.box {
+  background-color: #36393f;
+  min-width: 500px;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px 0 rgb(0 0 0 / 20%);
+
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.profile-header {
+  width: 100%;
+  position: relative;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.profile-header .profile-banner {
+  width: 100%;
+  height: 120px;
+}
+
+.profile-header .profile-avatar {
+  position: absolute;
+  height: 128px;
+  width: 128px;
+  border-radius: 100%;
+  overflow: hidden;
+  top: 55px;
+  margin-left: 20px;
+  border: 6px solid #36393f;
+  background-color: #36393f;
+}
+
+.profile-info {
+  padding: 20px;
+  margin-top: 30px;
+}
+
+.profile-info span {
+  color: #b9bbbe;
+}
+
+.profile-btn {
+  display: flex;
+  justify-content: center;
+  color: #ffffff;
+  background-color: #5865f2;
+  font-size: 16px;
+  line-height: 24px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 3px;
+  transition: background-color .17s ease;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.profile-btn:hover {
+  background-color: #4752c4;
+}
