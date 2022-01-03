@@ -19,7 +19,7 @@ export default function ProfileCard({ user }: { user: DiscordUser }) {
             </div>
             <div className="profile-info">
                 <p>{user.username}<span>#{user.discriminator}</span></p>    
-                <a className="profile-btn" href={`https://discord.com/users/${user.id}`}>Add Friend</a>
+                <a className="profile-btn" href={`https://discord.com/users/${user.id}`}>Add {user.username}</a>
             </div>
         </>
     )
