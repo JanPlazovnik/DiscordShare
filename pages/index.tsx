@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import axios from "axios"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
@@ -25,14 +26,20 @@ export default function Home() {
   }, [router.isReady])
 
   return (
-    <div className="wrapper">
-      <div className="box">
-        {
-          user
-          ? <ProfileCard user={user}/>
-          : <p style={{padding: "20px", margin: 0}}>Loading...</p>
-        }
+    <>
+      <Head>
+        <title>{ user ? user.username : "Discord Profile" }</title>
+      </Head>
+      <div className="wrapper">
+        <div className="box">
+          {
+            user
+            ? <ProfileCard user={user}/>
+            : <p style={{padding: "20px", margin: 0}}>Loading...</p>
+          }
+        </div>
+        <a href="https://github.com/JanPlazovnik/DiscordShare" className="footer-url">GitHub</a>
       </div>
-    </div>
+    </>
   )
 }
