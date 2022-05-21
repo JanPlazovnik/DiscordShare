@@ -1,115 +1,119 @@
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+        Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .wrapper {
-  position: relative;
-  display: grid;
-  place-items: center;
-  height: 100vh;
-  background-color: #202225;
-  background-image: url('https://i.odstrani.se/discord_background.svg');
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
+    position: relative;
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    background-color: #202225;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .box {
-  background-color: #36393f;
-  min-width: 500px;
-  overflow: hidden;
-  border-radius: 4px;
-  box-shadow: 0 2px 10px 0 rgb(0 0 0 / 20%);
+    background-color: #36393f;
+    min-width: 500px;
+    overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px 0 rgb(0 0 0 / 20%);
 
-  font-size: 20px;
-  font-weight: 600;
-  color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
 
-  z-index: 1;
+    z-index: 1;
 }
 
 .profile-header {
-  width: 100%;
-  position: relative;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+    width: 100%;
+    position: relative;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .profile-header .profile-banner {
-  width: 100%;
-  /* height: 120px; */
-  height: 160px;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
+    width: 100%;
+    height: 130px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .profile-header .profile-avatar {
-  position: absolute;
-  height: 128px;
-  width: 128px;
-  border-radius: 100%;
-  overflow: hidden;
-  /* top: 55px; */
-  top: 95px;
-  margin-left: 20px;
-  border: 6px solid #36393f;
-  background-color: #36393f;
+    position: absolute;
+    height: 128px;
+    width: 128px;
+    border-radius: 100%;
+    overflow: hidden;
+    top: 64px;
+    margin-left: 20px;
+    border: 6px solid #36393f;
+    background-color: #36393f;
 }
 
 .profile-info {
-  padding: 20px;
-  margin-top: 30px;
+    padding: 20px;
+    margin-top: 25px;
+    position: relative;
 }
 
 .profile-info span {
-  color: #b9bbbe;
+    color: #b9bbbe;
+}
+
+.profile-badges {
+    position: absolute;
+    top: -10px;
+    right: 20px;
 }
 
 .profile-btn {
-  display: flex;
-  justify-content: center;
-  color: #ffffff;
-  background-color: #5865f2;
-  font-size: 16px;
-  line-height: 24px;
-  width: 100%;
-  padding: 10px;
-  border-radius: 3px;
-  transition: background-color .17s ease;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+    display: flex;
+    justify-content: center;
+    color: #ffffff;
+    background-color: #5865f2;
+    font-size: 16px;
+    line-height: 24px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 3px;
+    transition: background-color 0.17s ease;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .profile-btn:hover {
-  background-color: #4752c4;
+    background-color: #4752c4;
 }
 
 .footer-url {
-  position: absolute;
-  bottom: 15px;
-  color: #ffffff;
-  opacity: .7;
-  transition: opacity .17s ease;
-  font-weight: 600;
+    position: absolute;
+    bottom: 15px;
+    color: #ffffff;
+    opacity: 0.7;
+    transition: opacity 0.17s ease;
+    font-weight: 600;
 }
 
 .footer-url:hover {
-  /* color: #ffffff; */
-  opacity: 1;
+    /* color: #ffffff; */
+    opacity: 1;
 }
