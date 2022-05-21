@@ -14,9 +14,3 @@ export enum Badges {
     CERTIFIED_MODERATOR = 1 << 18,
     BOT_HTTP_INTERACTIONS = 1 << 19
 }
-
-export enum Premium {
-    NONE = 0,
-    NITRO_CLASSIC = 1,
-    NITRO = 2
-}
