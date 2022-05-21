@@ -12,6 +12,7 @@ import discord_certified_moderator from '../public/badges/discord_certified_mode
 import early_supporter from '../public/badges/early_supporter.svg';
 import early_verified_developer from '../public/badges/early_verified_developer.svg';
 import staff from '../public/badges/staff.svg';
+import { getAvatarURL, getBannerURL, getDefaultAvatar } from '../utils';
 
 interface UserBadge {
     name: string;
@@ -19,22 +20,6 @@ interface UserBadge {
 }
 
 export default function ProfileCard({ user }: { user: DiscordUser }) {
-    function getAvatarURL(user: DiscordUser): string {       
-        return `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=128`;
-    }
-
-    function getBannerURL(user: DiscordUser): string {
-        return `https://cdn.discordapp.com/banners/${user.id}/${user.banner}.png?size=300`;
-    }
-
-    function getDefaultAvatar(user: DiscordUser): string {
-        const { discriminator } = user;
-        const digit = parseInt(discriminator[3]);
-
-        return `https://cdn.discordapp.com/embed/avatars/${digit >= 5 ? digit - 5 : digit}.png`;
-    }
-
-    // it'll do
     function fetchUserBadges() {
         const { public_flags } = user;
         const badges = [] as UserBadge[];
