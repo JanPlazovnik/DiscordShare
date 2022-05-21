@@ -31,8 +31,6 @@ export default function ProfileCard({ user }: { user: DiscordUser }) {
         const { discriminator } = user;
         const digit = parseInt(discriminator[3]);
 
-        console.log(`https://cdn.discordapp.com/embed/avatars/${digit >= 5 ? digit - 5 : digit}.png`);
-        
         return `https://cdn.discordapp.com/embed/avatars/${digit >= 5 ? digit - 5 : digit}.png`;
     }
 
