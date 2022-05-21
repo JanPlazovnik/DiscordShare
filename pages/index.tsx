@@ -26,21 +26,10 @@ export default function Home() {
         fetchData();
     }, [router.isReady]);
 
-    function getMetaTags() {
-        if (!user) return null
-        return (
-            <>
-                <meta name="og:title" content={`Add ${user.username}#${user.discriminator} on Discord`}/>
-                <meta name="og:image" content={process.env.EMBED_API?.replace('<id>', user.id)}/>
-            </>
-        )
-    }
-
     return (
         <>
             <Head>
                 <title>{user ? user.username : "Discord Profile"}</title>
-                { getMetaTags() }
             </Head>
             <div className="wrapper" style={{backgroundImage: `url(${background.src})`}}>
                 <div className="box">
