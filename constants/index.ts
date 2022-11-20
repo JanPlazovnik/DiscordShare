@@ -12,5 +12,6 @@ export enum Badges {
     VERIFIED_BOT = 1 << 16,
     VERIFIED_DEVELOPER = 1 << 17,
     CERTIFIED_MODERATOR = 1 << 18,
-    BOT_HTTP_INTERACTIONS = 1 << 19
+    BOT_HTTP_INTERACTIONS = 1 << 19,
+    ACTIVE_DEVELOPER = 1 << 22,
 }
