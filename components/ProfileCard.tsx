@@ -15,6 +15,7 @@ import early_verified_developer from '../public/badges/early_verified_developer.
 import staff from '../public/badges/staff.svg';
 import active_developer from '../public/badges/active_developer.svg';
 import hypesquad from '../public/badges/hypesquad.svg';
+import verified_bot from '../public/badges/verified_bot.svg';
 
 import { getAvatarURL, getBannerURL, getDefaultAvatar } from '../utils';
 
@@ -23,8 +24,18 @@ interface UserBadge {
     src: string;
 }
 
+function BotTag({ verified }: { verified: boolean }) {
+    return (
+        <div className="user-bot">
+            {verified && <img className="verified-bot" src={verified_bot.src} alt="Verified Bot" />}
+            <span>BOT</span>
+        </div>
+    );
+}
+
 export default function ProfileCard({ user }: { user: DiscordUser }) {
     const [badges, setBadges] = useState<UserBadge[]>([]);
+    const [verified, setVerified] = useState(false);
 
     function fetchUserBadges() {
         const { public_flags } = user;
@@ -85,6 +96,7 @@ export default function ProfileCard({ user }: { user: DiscordUser }) {
 
     useEffect(() => {
         setBadges(fetchUserBadges());
+        if (user.bot && user.public_flags && (user.public_flags & Badges.VERIFIED_BOT) !== 0) setVerified(true);
     }, [user]);
 
     return (
@@ -102,7 +114,11 @@ export default function ProfileCard({ user }: { user: DiscordUser }) {
                 }
             </div>
             <div className="profile-info">
-                <p>{user.username}<span>#{user.discriminator}</span></p>
+                <div className="profile-user">
+                    <span className='user-name'>{user.username}</span>
+                    <span className='user-tag'>#{user.discriminator}</span>
+                    {user.bot && <BotTag verified={verified} />}
+                </div>
                 {
                     badges.length > 0 && (<div className="profile-badges">
                         {badges.map(({ name, src }, index) => (<img src={src} alt={name} title={name} key={index} />))}
