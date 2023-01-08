@@ -1,11 +1,11 @@
 import { DiscordUser } from '../types/discord';
 
-export function getAvatarURL(user: DiscordUser): string {
-    return `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=128`;
+export function getAvatarURL(user: DiscordUser, ext: 'png' | 'gif' = 'png'): string {
+    return `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.${ext}?size=128`;
 }
 
-export function getBannerURL(user: DiscordUser): string {
-    return `https://cdn.discordapp.com/banners/${user.id}/${user.banner}.png?size=300`;
+export function getBannerURL(user: DiscordUser, ext: 'png' | 'gif' = 'png'): string {
+    return `https://cdn.discordapp.com/banners/${user.id}/${user.banner}.${ext}?size=300`;
 }
 
 export function getDefaultAvatar(user: DiscordUser): string {
