@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { DiscordUser } from '../types/discord'
 import { Badges } from '../constants';
+import Image from './Image';
 
 // Import all SVGs
 import partner from '../public/badges/partner.svg';
@@ -26,8 +27,8 @@ interface UserBadge {
 
 function BotTag({ verified }: { verified: boolean }) {
     return (
-        <div className="user-bot">
-            {verified && <img className="verified-bot" src={verified_bot.src} alt="Verified Bot" />}
+        <div className='user-bot'>
+            {verified && <img className='verified-bot' src={verified_bot.src} alt='Verified Bot' />}
             <span>BOT</span>
         </div>
     );
@@ -44,51 +45,51 @@ export default function ProfileCard({ user }: { user: DiscordUser }) {
         if (!public_flags) return badges;
 
         if ((public_flags & Badges.STAFF) !== 0) {
-            badges.push({ name: "Staff", src: staff.src });
+            badges.push({ name: 'Staff', src: staff.src });
         }
 
         if ((public_flags & Badges.CERTIFIED_MODERATOR) !== 0) {
-            badges.push({ name: "Discord Certified Moderator", src: discord_certified_moderator.src });
+            badges.push({ name: 'Discord Certified Moderator', src: discord_certified_moderator.src });
         }
 
         if ((public_flags & Badges.PARTNER) !== 0) {
-            badges.push({ name: "Partnered Server Owner", src: partner.src });
+            badges.push({ name: 'Partnered Server Owner', src: partner.src });
         }
 
         if ((public_flags & Badges.HYPESQUAD) !== 0) {
-            badges.push({ name: "HypeSquad Events", src: hypesquad.src });
+            badges.push({ name: 'HypeSquad Events', src: hypesquad.src });
         }
 
         if ((public_flags & Badges.HYPESQUAD_ONLINE_HOUSE_1) !== 0) {
-            badges.push({ name: "HypeSquad Bravery", src: bravery.src });
+            badges.push({ name: 'HypeSquad Bravery', src: bravery.src });
         }
 
         if ((public_flags & Badges.HYPESQUAD_ONLINE_HOUSE_2) !== 0) {
-            badges.push({ name: "HypeSquad Brilliance", src: brilliance.src });
+            badges.push({ name: 'HypeSquad Brilliance', src: brilliance.src });
         }
 
         if ((public_flags & Badges.HYPESQUAD_ONLINE_HOUSE_3) !== 0) {
-            badges.push({ name: "HypeSquad Balance", src: balance.src });
+            badges.push({ name: 'HypeSquad Balance', src: balance.src });
         }
 
         if ((public_flags & Badges.BUG_HUNTER_LEVEL_1) !== 0) {
-            badges.push({ name: "Bug Hunter", src: bug_hunter.src });
+            badges.push({ name: 'Bug Hunter', src: bug_hunter.src });
         }
 
         if ((public_flags & Badges.BUG_HUNTER_LEVEL_2) !== 0) {
-            badges.push({ name: "Bug Hunter", src: bug_hunter_2.src });
+            badges.push({ name: 'Bug Hunter', src: bug_hunter_2.src });
         }
 
         if ((public_flags & Badges.ACTIVE_DEVELOPER) !== 0) {
-            badges.push({ name: "Active Developer", src: active_developer.src });
+            badges.push({ name: 'Active Developer', src: active_developer.src });
         }
 
         if ((public_flags & Badges.VERIFIED_DEVELOPER) !== 0) {
-            badges.push({ name: "Early Verified Bot Developer", src: early_verified_developer.src });
+            badges.push({ name: 'Early Verified Bot Developer', src: early_verified_developer.src });
         }
 
         if ((public_flags & Badges.PREMIUM_EARLY_SUPPORTER) !== 0) {
-            badges.push({ name: "Early Nitro Supporter", src: early_supporter.src });
+            badges.push({ name: 'Early Nitro Supporter', src: early_supporter.src });
         }
 
         return badges
@@ -101,30 +102,30 @@ export default function ProfileCard({ user }: { user: DiscordUser }) {
 
     return (
         <>
-            <div className="profile-header">
+            <div className='profile-header'>
                 {
                     user.banner
-                        ? <div className="profile-banner" style={{ backgroundImage: `url('${getBannerURL(user)}')` }} />
-                        : <div className="profile-banner" style={{ backgroundColor: user.banner_color ?? "#ffffff" }} />
+                        ? <Image className='profile-banner' src={getBannerURL(user, 'gif')} fallback={getBannerURL(user)} alt='' />
+                        : <div className='profile-banner' style={{ backgroundColor: user.banner_color ?? '#ffffff' }} />
                 }
                 {
                     user.avatar
-                        ? <div className="profile-avatar" style={{ backgroundImage: `url('${getAvatarURL(user)}')` }} />
-                        : <div className="profile-avatar" style={{ backgroundImage: `url('${getDefaultAvatar(user)}')` }} />
+                        ? <Image className='profile-avatar' src={getAvatarURL(user, 'gif')} fallback={getAvatarURL(user)} alt='' />
+                        : <div className='profile-avatar' style={{ backgroundImage: `url('${getDefaultAvatar(user)}')` }} />
                 }
             </div>
-            <div className="profile-info">
-                <div className="profile-user">
+            <div className='profile-info'>
+                <div className='profile-user'>
                     <span className='user-name'>{user.username}</span>
                     <span className='user-tag'>#{user.discriminator}</span>
                     {user.bot && <BotTag verified={verified} />}
                 </div>
                 {
-                    badges.length > 0 && (<div className="profile-badges">
-                        {badges.map(({ name, src }, index) => (<img src={src} alt={name} title={name} key={index} />))}
+                    badges.length > 0 && (<div className='profile-badges'>
+                        {badges.map(({ name, src }, index) => (<img className='badge' src={src} alt={name} title={name} key={index} />))}
                     </div>)
                 }
-                <a className="profile-btn" href={`https://discord.com/users/${user.id}`}>Add {user.username}</a>
+                <a className='profile-btn' href={`https://discord.com/users/${user.id}`}>Add {user.username}</a>
             </div>
         </>
     )
