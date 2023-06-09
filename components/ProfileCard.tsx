@@ -116,8 +116,8 @@ export default function ProfileCard({ user }: { user: DiscordUser }) {
             </div>
             <div className='profile-info'>
                 <div className='profile-user'>
-                    <span className='user-name'>{user.username}</span>
-                    <span className='user-tag'>#{user.discriminator}</span>
+                    <span className='user-name'>{user.global_name ?? user.username}</span>
+                    {user.discriminator !== "0" && <span className='user-tag'>#{user.discriminator}</span> }
                     {user.bot && <BotTag verified={verified} />}
                 </div>
                 {
@@ -125,7 +125,7 @@ export default function ProfileCard({ user }: { user: DiscordUser }) {
                         {badges.map(({ name, src }, index) => (<img className='badge' src={src} alt={name} title={name} key={index} />))}
                     </div>)
                 }
-                <a className='profile-btn' href={`https://discord.com/users/${user.id}`}>Add {user.username}</a>
+                <a className='profile-btn' href={`https://discord.com/users/${user.id}`}>Add {user.global_name ?? user.username}</a>
             </div>
         </>
     )
