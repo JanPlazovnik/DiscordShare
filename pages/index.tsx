@@ -29,7 +29,7 @@ export default function Home() {
     return (
         <>
             <Head>
-                <title>{user ? user.username : "Discord Profile"}</title>
+                <title>{user ? (user.global_name ?? user.username) : "Discord Profile"}</title>
             </Head>
             <div className="wrapper" style={{backgroundImage: `url(${background.src})`}}>
                 <div className="box">
