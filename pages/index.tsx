@@ -40,6 +40,7 @@ export default function Home() {
                     }
                 </div>
                 <a href="https://github.com/JanPlazovnik/DiscordShare" className="footer-url">GitHub</a>
+                <p className="footer-notice">Not affiliated with or endorsed by Discord Inc.</p>
             </div>
         </>
     );
